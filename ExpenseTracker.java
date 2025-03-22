@@ -7,14 +7,18 @@ public class ExpenseTracker {
         expenses.add(new Expense(amount, category, date, details));
     }
     public void deleteExpense(int index) {
-        if (index >= 0 && index <= expenses.size()){
+        if (index >= 0 && index < expenses.size()){
             expenses.remove(index);
         }
     }
-    public void calculateExpense() {
-        
+    public double calculateExpense() {
+        double total = 0;
+        for (Expense e : expenses){
+            total += e.getAmount();
+        }
+        return total;
     }
-    public void getExpense() {
-
+    public ArrayList<Expense> getExpense() {
+        return expenses;
     }
 }
